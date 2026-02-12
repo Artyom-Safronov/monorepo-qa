@@ -1,9 +1,11 @@
 .DS_Store
 
-/dist
-/node_modules
-/build
-/tmp
+.__mf__temp
+
+**/dist
+**/node_modules
+**/build
+**/tmp
 
 logs
 *.log

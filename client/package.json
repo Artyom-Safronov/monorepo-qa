@@ -1,0 +1,30 @@
+{
+	"name": "react-microfrontend-demo",
+	"version": "1.0.0",
+	"description": "Vite + Module Federation is now possible",
+	"main": "index.js",
+	"scripts": {
+		"install:deps": "/Users/haulmontadmin/Library/pnpm/pnpm install && /Users/haulmontadmin/Library/pnpm/pnpm -r install",
+		"postinstall:deps": "npm run build",
+		"check": "node -e \"console.log(process.env)\"",
+		"dev": "/Users/haulmontadmin/Library/pnpm/pnpm -r dev",
+		"build": "/Users/haulmontadmin/Library/pnpm/pnpm -r build",
+		"preview": "/Users/haulmontadmin/Library/pnpm/pnpm -r preview"
+	},
+	"author": {
+		"name": "Giorgio Boa",
+		"email": "giorgiob.boa@gmail.com",
+		"url": "https://github.com/gioboa"
+	},
+	"license": "ISC",
+	"devDependencies": {
+		"husky": "^8.0.0",
+		"prettier": "^2.8.2"
+	},
+	"dependencies": {
+		"@emotion/react": "^11.14.0",
+		"@emotion/styled": "^11.14.1",
+		"@mui/material": "^7.3.6",
+		"@tanstack/react-query": "^5.90.15"
+	}
+}
