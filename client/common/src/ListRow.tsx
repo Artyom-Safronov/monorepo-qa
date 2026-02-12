@@ -2,7 +2,7 @@ import { Paper, Stack, Typography, IconButton, Box } from '@mui/material';
 import { Delete as DeleteIcon, Edit as EditIcon } from '@mui/icons-material';
 import { FC, ReactNode } from 'react';
 
-export interface ListRowProps {
+export type ListRowProps = {
 	title: string;
 	description?: string;
 	rightContent?: ReactNode;

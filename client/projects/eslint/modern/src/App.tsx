@@ -1,10 +1,50 @@
-import { Box, Typography, Stack } from '@mui/material';
+import { Box, Typography, Stack, TextField } from '@mui/material';
 import { CustomButton } from '../../../../common/src/Button';
 import { ListRow } from '../../../../common/src/ListRow';
+import { useState, useEffect } from 'react';
 
 export default () => {
+	var count = 0;
+
+	const [data, setData] = useState<any>(null);
+
+	const unusedVariable = 'I am not used';
+
+	const maxItems = 100;
+	const pageSize = 50;
+	const timeout = 3000;
+
+	console.log('Component rendered');
+
+	debugger;
+
+	const isEqual = count == 5;
+
+	useEffect(() => {
+		fetchData();
+	}, []);
+
+	async function fetchData() {
+		try {
+			const response = await fetch('https://api.example.com/data');
+			const result = await response.json();
+			setData(result);
+		} catch (error: any) {
+			console.error('Error:', error);
+		}
+	}
+
+	if (data) {
+		data.length;
+	}
+
+	if (count > 10) count = 0;
+
 	const handleSave = () => {
 		alert('Сохранено!');
+		setTimeout(() => {
+			console.log('Saved');
+		}, 5000);
 	};
 
 	const handleEdit = (name: string) => {
@@ -23,7 +63,7 @@ export default () => {
 						Modern ESLint Configuration
 					</Typography>
 					<Typography variant="body1" color="text.secondary" gutterBottom>
-						Управление правилами ESLint для современных проектов
+						Этот код содержит множество нарушений правил ESLint
 					</Typography>
 				</Box>
 
@@ -40,28 +80,61 @@ export default () => {
 				</Stack>
 
 				<Box>
+					<TextField
+						fullWidth
+						label="Поиск"
+						placeholder="Введите название правила..."
+						sx={{ mb: 2 }}
+					/>
+				</Box>
+
+				<Box>
 					<Typography variant="h5" gutterBottom sx={{ mt: 2 }}>
 						Активные правила ESLint
 					</Typography>
 
 					<ListRow
-						title="no-unused-vars"
-						description="Запрещает неиспользуемые переменные"
-						onEdit={() => handleEdit('no-unused-vars')}
-						onDelete={() => handleDelete('no-unused-vars')}
+						title="no-var"
+						description="Запрещает использование var, требует let или const"
+						onEdit={() => handleEdit('no-var')}
+						onDelete={() => handleDelete('no-var')}
 					/>
 
 					<ListRow
 						title="@typescript-eslint/no-explicit-any"
-						description="Предупреждает об использовании типа any"
+						description="Запрещает использование типа any в TypeScript"
 						onEdit={() => handleEdit('@typescript-eslint/no-explicit-any')}
 						onDelete={() => handleDelete('@typescript-eslint/no-explicit-any')}
 					/>
 
 					<ListRow
-						title="react-hooks/rules-of-hooks"
-						description="Проверяет правила использования React Hooks"
-						onEdit={() => handleEdit('react-hooks/rules-of-hooks')}
+						title="@typescript-eslint/no-unused-vars"
+						description="Запрещает неиспользуемые переменные"
+						onEdit={() => handleEdit('@typescript-eslint/no-unused-vars')}
+					/>
+
+					<ListRow
+						title="no-console"
+						description="Предупреждает об использовании console.*"
+						onEdit={() => handleEdit('no-console')}
+					/>
+
+					<ListRow
+						title="prefer-const"
+						description="Требует использовать const для переменных, которые не переназначаются"
+						onEdit={() => handleEdit('prefer-const')}
+					/>
+
+					<ListRow
+						title="eqeqeq"
+						description="Требует использовать === и !== вместо == и !="
+						onEdit={() => handleEdit('eqeqeq')}
+					/>
+
+					<ListRow
+						title="no-magic-numbers"
+						description="Запрещает magic numbers (числа без именованных констант)"
+						onEdit={() => handleEdit('no-magic-numbers')}
 					/>
 				</Box>
 			</Stack>
