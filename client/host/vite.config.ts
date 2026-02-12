@@ -5,7 +5,7 @@ import { defineConfig } from 'vite';
 import { dependencies } from './package.json';
 
 export default defineConfig(() => ({
-	server: { fs: { allow: ['.', '../shared'] } },
+	server: { fs: { allow: ['.', '../shared', '../common'] } },
 	build: {
 		target: 'chrome89',
 	},

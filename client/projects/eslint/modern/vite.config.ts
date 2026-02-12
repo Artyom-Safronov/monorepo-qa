@@ -10,7 +10,7 @@ export default defineConfig(({ mode }) => {
 	return {
 		server: {
 			fs: {
-				allow: ['.', '../shared'],
+				allow: ['.', '../../shared', '../../common'],
 			},
 			proxy: {
 				'/api/v1/projects': {

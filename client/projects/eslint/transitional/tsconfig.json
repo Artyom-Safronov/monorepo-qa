@@ -11,14 +11,14 @@
 		"forceConsistentCasingInFileNames": true,
 		"verbatimModuleSyntax": true,
 		"module": "ESNext",
-		"moduleResolution": "Node",
+		"moduleResolution": "Bundler",
 		"resolveJsonModule": true,
 		"isolatedModules": true,
 		"noEmit": true,
 		"jsx": "react-jsx",
 		"baseUrl": ".",
 		"paths": {
-			"shared": ["../shared/shared.ts"]
+			"shared": ["../../shared/shared.ts"]
 		}
 	},
 	"include": ["src"],

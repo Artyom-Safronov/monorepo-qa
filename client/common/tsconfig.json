@@ -16,14 +16,8 @@
 		"noEmit": true,
 		"jsx": "react-jsx",
 		"baseUrl": ".",
-		"paths": {
-			"shared": ["../shared/shared.ts"]
-		}
+		"paths": {}
 	},
 	"include": ["src"],
-	"references": [
-		{
-			"path": "./tsconfig.node.json"
-		}
-	]
+	"exclude": ["node_modules"]
 }

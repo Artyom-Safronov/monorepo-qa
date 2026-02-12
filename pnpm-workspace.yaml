@@ -1,0 +1,4 @@
+packages:
+  - 'client/host'
+  - 'client/projects/**'
+  - 'server'

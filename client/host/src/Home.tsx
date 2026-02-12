@@ -1,50 +1,50 @@
-import { Box, Grid, Paper, Typography } from '@mui/material';
+import { Box, Grid, Chip, Typography } from '@mui/material';
 import { useNavigate } from 'react-router';
+import { ListRow } from '../../common/src/ListRow';
+import { CustomButton } from '../../common/src/Button';
 
 export type HomeState = {};
 
 const ESLINT_PROJECT_DATA: ESLintProjectData[] = [
-  {name: "Modern", link: "modern"},
-  {name: "Legacy", link: "legacy"},
-  {name: "Transitional", link: "transitional"},
-]
+	{ name: 'Modern', link: 'modern', description: 'Современный ESLint конфиг с последними правилами' },
+	{ name: 'Legacy', link: 'legacy', description: 'Устаревший конфиг для поддержки старых проектов' },
+	{ name: 'Transitional', link: 'transitional', description: 'Промежуточный конфиг для миграции' },
+];
 
 export const Home = () => {
-
+	const navigate = useNavigate();
 
 	return (
 		<>
-			<Typography variant="h2">Проекты ESLint</Typography>
-			<Grid mt={4} spacing={2} container>
-				{ESLINT_PROJECT_DATA.map(data => {
-          return (
-            <Grid size={{ sm: 6, md: 6 }}>
-              <ESLintProjectLink {...data} />
-            </Grid>
-          )
-        })}
+			<Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 4 }}>
+				<Typography variant="h2">Проекты ESLint</Typography>
+				<CustomButton variant="contained" color="primary" onClick={() => alert('Создать новый проект')}>
+					Добавить проект
+				</CustomButton>
+			</Box>
+
+			<Grid container spacing={2}>
+				{ESLINT_PROJECT_DATA.map((data) => {
+					return (
+						<Grid size={{ xs: 12 }} key={data.link}>
+							<ListRow
+								title={data.name}
+								description={data.description}
+								rightContent={<Chip label={data.link === 'modern' ? 'Рекомендуется' : 'Доступен'} color={data.link === 'modern' ? 'success' : 'default'} />}
+								onEdit={() => navigate(`/projects/eslint/${data.link}`)}
+								onDelete={() => alert(`Удалить проект ${data.name}?`)}
+							/>
+						</Grid>
+					);
+				})}
 			</Grid>
 		</>
 	);
 };
 
 type ESLintProjectData = {
-  name: string;
-  link: string;
+	name: string;
+	link: string;
+	description: string;
 }
 
-const ESLintProjectLink = (projectData: ESLintProjectData) => {
-  const navigate = useNavigate();
-
-  const handleClick = () => {
-      navigate(`/projects/eslint/${projectData.link}`)
-  }
-
-  return (
-    <Box onClick={handleClick} sx={{cursor: "pointer"}}>
-      <Paper variant="elevation" elevation={3} sx={{ padding: 4 }}>
-        <Typography variant="h6">{projectData.name}</Typography>
-      </Paper>
-    </Box>
-  )
-}
