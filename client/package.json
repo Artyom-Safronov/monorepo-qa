@@ -4,11 +4,11 @@
 	"description": "Vite + Module Federation is now possible",
 	"main": "index.js",
 	"scripts": {
-		"install:deps": "/Users/haulmontadmin/Library/pnpm/pnpm install && /Users/haulmontadmin/Library/pnpm/pnpm -r install",
+		"install:deps": "pnpm install && pnpm -r install",
 		"check": "node -e \"console.log(process.env)\"",
-		"dev": "/Users/haulmontadmin/Library/pnpm/pnpm -r dev",
-		"build": "/Users/haulmontadmin/Library/pnpm/pnpm -r build",
-		"preview": "/Users/haulmontadmin/Library/pnpm/pnpm -r preview"
+		"dev": "pnpm -r dev",
+		"build": "pnpm -r build",
+		"preview": "pnpm -r preview"
 	},
 	"author": {
 		"name": "Giorgio Boa",

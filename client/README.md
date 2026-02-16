@@ -216,6 +216,3 @@ pnpm install
 
 И обновите соответствующие записи в `client/host/vite.config.ts`.
 
-## Screenshot
-
-![screenshot](docs/screenshot.png)
