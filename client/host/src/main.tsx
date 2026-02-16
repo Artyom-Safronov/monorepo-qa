@@ -7,6 +7,8 @@ import { EslintModernApp } from './projects/eslint/EslintModernApp';
 import { Home } from './Home';
 import './App.css';
 import { EslintTransitionalApp } from './projects/eslint/EslintTransitionalApp';
+import { EslintLegacyApp } from './projects/eslint/EslintLegacyApp';
+import { EslintAlexKarelinApp } from './projects/eslint/EslintAlexKarelinApp';
 
 const queryClient = new QueryClient();
 
@@ -21,7 +23,8 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
 						  <Route path="eslint">
                 <Route path="modern" element={<EslintModernApp />} />
                 <Route path="transitional" element={<EslintTransitionalApp />} />
-                <Route path="legacy" element={<EslintModernApp />} />
+                <Route path="legacy" element={<EslintLegacyApp />} />
+                <Route path="alex-karelin" element={<EslintAlexKarelinApp />} />
               </Route>
 						</Route>
 					</Route>

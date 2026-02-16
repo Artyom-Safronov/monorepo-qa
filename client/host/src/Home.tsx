@@ -9,6 +9,7 @@ const ESLINT_PROJECT_DATA: ESLintProjectData[] = [
 	{ name: 'Modern', link: 'modern', description: 'Современный ESLint конфиг с последними правилами' },
 	{ name: 'Legacy', link: 'legacy', description: 'Устаревший конфиг для поддержки старых проектов' },
 	{ name: 'Transitional', link: 'transitional', description: 'Промежуточный конфиг для миграции' },
+	{ name: 'Alex Karelin', link: 'alex-karelin', description: 'Legacy-проект: React 17 + Redux 3.7 + airbnb ESLint конфиг' },
 ];
 
 export const Home = () => {

@@ -4,20 +4,27 @@ import { ListRow } from '../../../../common/src/ListRow';
 import { useState, useEffect } from 'react';
 
 export default () => {
-	var count = 0;
+	// Нарушение: no-var — использование var вместо let/const
+	// Нарушение: @typescript-eslint/no-explicit-any — использование типа any
+	var count: any = 0;
 
+	// Нарушение: @typescript-eslint/no-explicit-any — тип any в useState
 	const [data, setData] = useState<any>(null);
 
+	// Нарушение: @typescript-eslint/no-unused-vars — переменная не используется
 	const unusedVariable = 'I am not used';
 
+	// Нарушение: @typescript-eslint/no-unused-vars — переменные не используются
 	const maxItems = 100;
 	const pageSize = 50;
 	const timeout = 3000;
 
 	console.log('Component rendered');
 
+	// Нарушение: no-debugger — использование debugger
 	debugger;
 
+	// Нарушение: @typescript-eslint/no-unused-vars — переменная не используется
 	const isEqual = count == 5;
 
 	useEffect(() => {
@@ -29,12 +36,14 @@ export default () => {
 			const response = await fetch('https://api.example.com/data');
 			const result = await response.json();
 			setData(result);
+		// Нарушение: @typescript-eslint/no-explicit-any — тип any в catch
 		} catch (error: any) {
 			console.error('Error:', error);
 		}
 	}
 
 	if (data) {
+		// Нарушение: @typescript-eslint/no-unused-expressions — выражение без присваивания или вызова
 		data.length;
 	}
 
@@ -55,6 +64,7 @@ export default () => {
 		console.log('Удаление:', name);
 	};
 
+	// Нарушение: react/react-in-jsx-scope — React не импортирован в scope (на каждом JSX-элементе)
 	return (
 		<Box sx={{ p: 3 }}>
 			<Stack spacing={3}>

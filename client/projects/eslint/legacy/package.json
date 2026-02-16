@@ -1,0 +1,30 @@
+{
+  "name": "legacy-app",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "dev": "vite --port 4174",
+    "build": "tsc && vite build",
+    "preview": "npm run build && vite preview --port 4174",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router": "^7.11.0"
+  },
+  "devDependencies": {
+    "@module-federation/vite": "1.1.9",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
+    "@typescript-eslint/eslint-plugin": "2.34.0",
+    "@typescript-eslint/parser": "2.34.0",
+    "@vitejs/plugin-react": "4.2.1",
+    "eslint": "6.8.0",
+    "eslint-plugin-react": "7.20.0",
+    "eslint-plugin-react-hooks": "^2.5.1",
+    "typescript": "^5.6.3",
+    "vite": "5.2.10"
+  }
+}

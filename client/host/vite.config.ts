@@ -13,20 +13,34 @@ export default defineConfig(() => ({
 		federation({
 			name: 'host',
 			remotes: {
+                "eslint-legacy": {
+                    type: 'module',
+                    name: 'eslint-legacy',
+                    entry: 'http://localhost:4174/remoteEntry.js',
+                    entryGlobalName: 'remote',
+                    shareScope: 'default',
+                },
+                "eslint-transitional": {
+                    type: 'module',
+                    name: 'eslint-transitional',
+                    entry: 'http://localhost:4175/remoteEntry.js',
+                    entryGlobalName: 'remote',
+                    shareScope: 'default',
+                },
 				"eslint-modern": {
 					type: 'module',
 					name: 'eslint-modern',
-					entry: 'http://localhost:4174/remoteEntry.js',
+					entry: 'http://localhost:4176/remoteEntry.js',
 					entryGlobalName: 'remote',
 					shareScope: 'default',
 				},
-        "eslint-transitional": {
-          type: 'module',
-          name: 'eslint-transitional',
-          entry: 'http://localhost:4175/remoteEntry.js',
-          entryGlobalName: 'remote',
-          shareScope: 'default',
-        },
+				"eslint-alex-karelin": {
+					type: 'module',
+					name: 'eslint-alex-karelin',
+					entry: 'http://localhost:4177/remoteEntry.js',
+					entryGlobalName: 'remote',
+					shareScope: 'default',
+				},
 			},
 			exposes: {},
 			filename: 'remoteEntry.js',

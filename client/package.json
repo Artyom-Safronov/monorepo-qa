@@ -5,7 +5,6 @@
 	"main": "index.js",
 	"scripts": {
 		"install:deps": "/Users/haulmontadmin/Library/pnpm/pnpm install && /Users/haulmontadmin/Library/pnpm/pnpm -r install",
-		"postinstall:deps": "npm run build",
 		"check": "node -e \"console.log(process.env)\"",
 		"dev": "/Users/haulmontadmin/Library/pnpm/pnpm -r dev",
 		"build": "/Users/haulmontadmin/Library/pnpm/pnpm -r build",
