@@ -1,7 +1,8 @@
-import { Box, Grid, Chip, Typography } from '@mui/material';
+import { Box, Chip, Typography } from '@mui/material';
 import { useNavigate } from 'react-router';
 import { ListRow } from '../../common/src/ListRow';
 import { CustomButton } from '../../common/src/Button';
+import Grid from '@mui/material/Grid2';
 
 export type HomeState = {};
 

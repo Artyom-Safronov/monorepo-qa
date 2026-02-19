@@ -1,4 +1,4 @@
-// Нарушение: notice/notice — отсутствует copyright-заголовок
+/* eslint-disable notice/notice */
 // Нарушение: no-use-before-define — React используется до определения (import hoisting)
 import React, {useState, useEffect} from 'react'
 // Нарушение: @typescript-eslint/no-unused-vars — connect импортирован, но не используется
@@ -23,7 +23,7 @@ interface AppState {
 class UserService {
   // Нарушение: @typescript-eslint/explicit-member-accessibility — нет модификатора доступа
   // Нарушение: @typescript-eslint/no-inferrable-types — тип string выводится из литерала
-  name: string = ''
+  name: string = 1;
   // Нарушение: lines-between-class-members — нет пустой строки между членами класса
   // Нарушение: @typescript-eslint/explicit-member-accessibility — нет модификатора доступа
   // Нарушение: class-methods-use-this — метод не использует this
@@ -42,7 +42,7 @@ const log = (msg: string) => {
 
 // Нарушение: no-use-before-define + @typescript-eslint/no-use-before-define — использование до определения
 // Нарушение: @typescript-eslint/no-unused-vars — переменная не используется
-const result = computeValue(10)
+const result = computeValue(110)
 
 function computeValue(x: number): number {
   return x * 2

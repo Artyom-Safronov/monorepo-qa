@@ -1,0 +1,44 @@
+{
+  "compilerOptions": {
+    // Конфликт 1: target ES2015 — родительский with-lib использует ES2022
+    "target": "ES2015",
+
+    // Конфликт 2: module CommonJS — родительский with-lib использует ESNext
+    "module": "CommonJS",
+
+    // Конфликт 3: moduleResolution node — родительский with-lib использует bundler
+    "moduleResolution": "node",
+
+    // Конфликт 4: lib ES2015 — родительский with-lib использует ["ES2022", "DOM", "DOM.Iterable"]
+    "lib": ["ES2015", "DOM"],
+
+    // Конфликт 5: strict false — родительский with-lib использует strict: true
+    "strict": false,
+    // Но хотя бы noImplicitAny включён явно
+    "noImplicitAny": true,
+
+    // Конфликт 6: noUnusedLocals и noUnusedParameters не включены —
+    // родительский with-lib их требует
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+
+    // Конфликт 7: esModuleInterop true — несовместим с verbatimModuleSyntax
+    // в родительском with-lib (там verbatimModuleSyntax: true)
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+
+    // Конфликт 8: erasableSyntaxOnly НЕ включён — родительский with-lib его требует.
+    // Это позволяет использовать enum и namespace (запрещены в with-lib)
+
+    // Конфликт 9: noEmit false + declaration true — родительский with-lib: noEmit true
+    "noEmit": false,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "outDir": "./dist",
+
+    "skipLibCheck": false
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "dist"]
+}

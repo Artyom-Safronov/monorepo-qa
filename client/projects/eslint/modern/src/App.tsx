@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react';
 export default () => {
 	// Нарушение: no-var — использование var вместо let/const
 	// Нарушение: @typescript-eslint/no-explicit-any — использование типа any
-	var count: any = 0;
+	var count: number = 'asd';
 
 	// Нарушение: @typescript-eslint/no-explicit-any — тип any в useState
 	const [data, setData] = useState<any>(null);

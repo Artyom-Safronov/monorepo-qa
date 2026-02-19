@@ -9,8 +9,8 @@ export default defineConfig([
   tseslint.configs.recommended,
   pluginReact.configs.flat.recommended,
   {
-  		rules: {
-  			"react/display-name": "off"
-  		},
-  	},
+    rules: {
+        "react/display-name": "off"
+    },
+},
 ]);
