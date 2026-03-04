@@ -31,7 +31,7 @@
   "rules": {
     "semi": "error",
     "prefer-const": "error",
-    "no-console": "warn",
+    "no-console": "off",
     "react/display-name": "off",
     "react/react-in-jsx-scope": "off",
     "@typescript-eslint/explicit-function-return-type": "error"

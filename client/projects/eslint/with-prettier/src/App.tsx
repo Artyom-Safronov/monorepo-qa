@@ -3,27 +3,33 @@ import { CustomButton } from '../../../../common/src/Button';
 import { ListRow } from '../../../../common/src/ListRow';
 
 export default () => {
-	// Нарушение: no-var — использование var вместо let/const
-	// Нарушение: @typescript-eslint/no-explicit-any — использование типа any
-	var count: number = 'asd';
+	// Нарушение ESLint: no-var — использование var вместо let/const
+	// Нарушение ESLint: @typescript-eslint/no-explicit-any — использование типа any
+	let count: number = 'asd';
 
-	// Нарушение: @typescript-eslint/no-explicit-any — тип any в useState
-	 const [data, setData] = useState<any>(null);
+	// Нарушение ESLint: @typescript-eslint/no-explicit-any — тип any в useState
+	const [data, setData] = useState<any>(null);
 
-	// Нарушение: @typescript-eslint/no-unused-vars — переменная не используется
+	// Нарушение ESLint: @typescript-eslint/no-unused-vars — переменная не используется
 	const unusedVariable = 'I am not used';
 
-	// Нарушение: @typescript-eslint/no-unused-vars — переменные не используются
+	// Нарушение Prettier: двойные кавычки вместо одинарных
+	const title = 'ESLint + Prettier Configuration';
+
+	// Нарушение Prettier: лишние пробелы перед двоеточием в объекте
+	const config = { printWidth: 140, singleQuote: true };
+
+	// Нарушение ESLint: @typescript-eslint/no-unused-vars — переменные не используются
 	const maxItems = 100;
 	const pageSize = 50;
 	const timeout = 3000;
 
 	console.log('Component rendered');
 
-	// Нарушение: no-debugger — использование debugger
+	// Нарушение ESLint: no-debugger — использование debugger
 	debugger;
 
-	// Нарушение: @typescript-eslint/no-unused-vars — переменная не используется
+	// Нарушение ESLint: @typescript-eslint/no-unused-vars — переменная не используется
 	const isEqual = count == 5;
 
 	useEffect(() => {
@@ -35,14 +41,14 @@ export default () => {
 			const response = await fetch('https://api.example.com/data');
 			const result = await response.json();
 			setData(result);
-		// Нарушение: @typescript-eslint/no-explicit-any — тип any в catch
+			// Нарушение ESLint: @typescript-eslint/no-explicit-any — тип any в catch
 		} catch (error: any) {
 			console.error('Error:', error);
 		}
 	}
 
 	if (data) {
-		// Нарушение: @typescript-eslint/no-unused-expressions — выражение без присваивания или вызова
+		// Нарушение ESLint: @typescript-eslint/no-unused-expressions — выражение без присваивания или вызова
 		data.length;
 	}
 
@@ -63,16 +69,15 @@ export default () => {
 		console.log('Удаление:', name);
 	};
 
-	// Нарушение: react/react-in-jsx-scope — React не импортирован в scope (на каждом JSX-элементе)
 	return (
 		<Box sx={{ p: 3 }}>
 			<Stack spacing={3}>
 				<Box>
 					<Typography variant="h3" gutterBottom>
-						Modern ESLint Configuration
+						ESLint + Prettier Configuration
 					</Typography>
 					<Typography variant="body1" color="text.secondary" gutterBottom>
-						Этот код содержит множество нарушений правил ESLint
+						Этот код содержит нарушения правил ESLint и форматирования Prettier
 					</Typography>
 				</Box>
 
@@ -89,18 +94,27 @@ export default () => {
 				</Stack>
 
 				<Box>
-					<TextField
-						fullWidth
-						label="Поиск"
-						placeholder="Введите название правила..."
-						sx={{ mb: 2 }}
-					/>
+					<TextField fullWidth label="Поиск" placeholder="Введите название правила..." sx={{ mb: 2 }} />
 				</Box>
 
 				<Box>
 					<Typography variant="h5" gutterBottom sx={{ mt: 2 }}>
-						Активные правила ESLint
+						Активные правила ESLint + Prettier
 					</Typography>
+
+					<ListRow
+						title="prettier/prettier"
+						description="Запускает Prettier как правило ESLint, сообщая об ошибках форматирования"
+						onEdit={() => handleEdit('prettier/prettier')}
+						onDelete={() => handleDelete('prettier/prettier')}
+					/>
+
+					<ListRow
+						title="eslint-config-prettier"
+						description="Отключает правила ESLint, конфликтующие с Prettier (кавычки, точки с запятой, отступы)"
+						onEdit={() => handleEdit('eslint-config-prettier')}
+						onDelete={() => handleDelete('eslint-config-prettier')}
+					/>
 
 					<ListRow
 						title="no-var"
@@ -126,24 +140,6 @@ export default () => {
 						title="no-console"
 						description="Предупреждает об использовании console.*"
 						onEdit={() => handleEdit('no-console')}
-					/>
-
-					<ListRow
-						title="prefer-const"
-						description="Требует использовать const для переменных, которые не переназначаются"
-						onEdit={() => handleEdit('prefer-const')}
-					/>
-
-					<ListRow
-						title="eqeqeq"
-						description="Требует использовать === и !== вместо == и !="
-						onEdit={() => handleEdit('eqeqeq')}
-					/>
-
-					<ListRow
-						title="no-magic-numbers"
-						description="Запрещает magic numbers (числа без именованных констант)"
-						onEdit={() => handleEdit('no-magic-numbers')}
 					/>
 				</Box>
 			</Stack>

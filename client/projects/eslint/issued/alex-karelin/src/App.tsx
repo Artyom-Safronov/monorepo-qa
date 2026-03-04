@@ -1,4 +1,7 @@
-/* eslint-disable notice/notice */
+/**
+ * Copyright (c) {YEAR}
+ * All rights reserved.
+ */
 // Нарушение: no-use-before-define — React используется до определения (import hoisting)
 import React, {useState, useEffect} from 'react'
 // Нарушение: @typescript-eslint/no-unused-vars — connect импортирован, но не используется
@@ -7,7 +10,8 @@ import {ListRow} from '../../../../../common/src/ListRow'
 
 // Нарушение: @typescript-eslint/no-empty-interface — пустой интерфейс
 // Нарушение: @typescript-eslint/no-unused-vars — интерфейс не используется
-  interface EmptyProps {}
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+interface EmptyProps {}
 
 // Нарушение: @typescript-eslint/no-unused-vars — тип не используется
 type SaveHandler = Function
@@ -15,15 +19,16 @@ type SaveHandler = Function
 // Нарушение: @typescript-eslint/no-unused-vars — интерфейс не используется
 // Нарушение: @typescript-eslint/member-delimiter-style — запятая вместо none в multiline
 interface AppState {
-  count: number,
-  name: string,
+  count: number
+  name: string
 }
 
 // Нарушение: @typescript-eslint/no-unused-vars — класс не используется
 class UserService {
   // Нарушение: @typescript-eslint/explicit-member-accessibility — нет модификатора доступа
   // Нарушение: @typescript-eslint/no-inferrable-types — тип string выводится из литерала
-  name: string = 1;
+  name: string = 1
+
   // Нарушение: lines-between-class-members — нет пустой строки между членами класса
   // Нарушение: @typescript-eslint/explicit-member-accessibility — нет модификатора доступа
   // Нарушение: class-methods-use-this — метод не использует this
@@ -32,12 +37,12 @@ class UserService {
 
 // Нарушение: @typescript-eslint/no-unused-vars — переменная не используется
 // Нарушение: semi + @typescript-eslint/semi — точка с запятой (конфиг требует never)
-const MAGIC_NUMBER = 42;
+const MAGIC_NUMBER = 42
 
 // Нарушение: @typescript-eslint/indent — отступ 4 вместо 2
 // Нарушение: no-console — использование console
 const log = (msg: string) => {
-    console.log(msg)
+  console.log(msg)
 }
 
 // Нарушение: no-use-before-define + @typescript-eslint/no-use-before-define — использование до определения
@@ -85,7 +90,7 @@ const App: React.FC = () => {
 
   // Нарушение: object-curly-spacing — пробелы внутри фигурных скобок (конфиг требует never)
   // Нарушение: @typescript-eslint/no-unused-vars — переменная не используется
-  const config = { timeout: 3000, retries: 5 }
+  const config = {timeout: 3000, retries: 5}
 
   useEffect(() => {
     fetchData().then(setData)
@@ -94,8 +99,8 @@ const App: React.FC = () => {
   // Нарушение: @typescript-eslint/no-unused-vars — интерфейс не используется
   // Нарушение: @typescript-eslint/member-delimiter-style — точка с запятой вместо none
   interface UserInfo {
-    id: number;
-    email: string;
+    id: number
+    email: string
   }
 
   const handleEdit = (ruleName: string) => {
@@ -112,7 +117,8 @@ const App: React.FC = () => {
     <div
         // Нарушение: react/jsx-indent-props — отступ 8 вместо 2
         // Нарушение: react/jsx-closing-bracket-location — неправильное расположение закрывающей скобки
-        style={{padding: '24px'}}>
+      style={{padding: '24px'}}
+    >
       <div>
         <h2>Alex Karelin — ESLint Legacy Config</h2>
         <p style={{color: '#666'}}>

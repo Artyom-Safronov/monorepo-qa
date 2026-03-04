@@ -28,7 +28,7 @@ module.exports = {
         'VERSION': false,
     },
     'rules': {
-        'notice/notice':['warn',
+        'notice/notice':['error',
             {
                 'templateFile': path.resolve(__dirname, './copyright.txt'),
                 'varRegexps': {YEAR: /(19|20)[89012][0-9]/},

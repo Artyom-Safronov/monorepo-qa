@@ -33,7 +33,7 @@ export default [
       ...tsPlugin.configs.recommended.rules,
       semi: "error",
       "prefer-const": "error",
-      "no-console": "error",
+      "no-console": "off",
       "react/react-in-jsx-scope": "off",
       "@typescript-eslint/explicit-function-return-type": "error",
     },

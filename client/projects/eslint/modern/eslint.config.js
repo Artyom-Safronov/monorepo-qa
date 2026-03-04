@@ -10,7 +10,8 @@ export default defineConfig([
   pluginReact.configs.flat.recommended,
   {
     rules: {
-        "react/display-name": "off"
+        "react/display-name": "off",
+        "no-console": "warn",
     },
 },
 ]);
