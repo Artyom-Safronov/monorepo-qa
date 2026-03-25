@@ -1,0 +1,31 @@
+@keyframes name {
+    from {
+
+    }
+
+    to {
+
+    }
+
+    20% {
+
+    }
+}
+
+@keyframes name1 {
+    from {
+
+    }
+
+    to {
+
+    }
+
+    20% {
+
+    }
+}
+
+.spinner {
+    animation: duration easing-function delay name;
+}

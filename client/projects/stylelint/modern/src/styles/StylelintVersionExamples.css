@@ -1,0 +1,178 @@
+@property --test {
+    syntax: "<test>"
+  
+}
+
+@supports (font: auto) {
+}
+
+@view-transition {
+
+}
+
+
+@starting-style {
+   .legacy-hsl {
+      transform: translate(10px);
+   }
+}
+
+
+@scope (.legacy-hsl) to (.correct-var) {
+   img {
+      color: #0055ff
+      font-size: x-large;
+      width: calc-size();
+   }
+
+    p {
+
+    }
+}
+
+
+.class {
+   container: test;
+    color: var(--);
+}
+
+/* ─── Legacy color notation ─────────────────────────────────────────── */
+/* ✅ legacy config   ❌ modern config (color-function-notation: "modern") */
+
+.legacy-rgb {
+    color: rgb(255, 0, 0);
+
+    background-color: rgba(0, 128, 255, 0.5);
+    @media screen {
+        transition: margin-left 1s ease-in;
+    }
+}
+
+.legacy-hsl {
+    border-color: hsl(240, 100%, 50%);
+    outline-color: hsla(0, 0%, 0%, 0.8);
+}
+
+
+/* ─── Modern color notation ─────────────────────────────────────────── */
+/* ❌ legacy config (color-function-notation: "legacy")  ✅ modern config */
+
+.modern-rgb {
+    color: rgb(255 0 0);
+    background-color: rgb(0 128 255 / 50%);
+}
+
+.modern-hsl {
+    border-color: hsl(240 100% 50%);
+    outline-color: hsl(0 0% 0% / 80%);
+}
+
+
+/* ─── Hex colors ─────────────────────────────────────────────────────── */
+/* ✅ both configs: lowercase hex is always valid                         */
+
+.hex-lowercase {
+    color: #ff0000;
+    background-color: #0080ff;
+    border-color: #0000ff80;
+}
+
+/* ❌ v14 only: color-hex-case: "lower" was in config-standard@29        */
+/* ✅ v16: rule was removed in stylelint v15                              */
+
+.hex-uppercase {
+    color: #FF0000;
+    background-color: #00FF80;
+    border-color: #AABBCC;
+}
+
+
+/* ─── Number leading zero ────────────────────────────────────────────── */
+/* ❌ v14 only: number-leading-zero: "always" was in config-standard@29  */
+/* ✅ v16: rule was removed in stylelint v15                              */
+
+.no-leading-zero {
+    opacity: .5;
+    transform: rotate(.25turn);
+    animation-delay: .3s;
+}
+
+/* ✅ both: leading zero always safe */
+
+.with-leading-zero {
+    opacity: 0.5;
+    transform: rotate(0.25turn);
+    animation-delay: 0.3s;
+}
+
+
+/* ─── Custom property without var() ─────────────────────────────────── */
+/* ❌ v16 only: custom-property-no-missing-var-function (added in v15)   */
+/* ✅ v14: rule does not exist in stylelint@14                            */
+
+.missing-var {
+    color: --brand-color;
+    background-color: --surface-color;
+}
+
+/* ✅ both: correct usage */
+
+.correct-var {
+    color: var(--brand-color);
+    background-color: var(--surface-color);
+}
+
+
+/* ─── Shorthand vs longhand ──────────────────────────────────────────── */
+/* ✅ both configs: shorthand is always fine                              */
+
+.shorthand-box {
+    margin: 10px 20px;
+    padding: 8px 16px;
+    border: 1px solid #ccc;
+}
+
+/* ✅ both configs: longhand with non-redundant values is fine            */
+
+.longhand-box {
+    margin-top: 10px;
+    margin-right: 20px;
+    margin-bottom: 30px;
+    margin-left: 40px;
+}
+
+
+/* ─── Named / keyword colors ─────────────────────────────────────────── */
+/* ✅ both configs                                                         */
+
+.named-colors {
+    color: red;
+    background-color: transparent;
+    border-color: currentcolor;
+    outline-color: inherit;
+}
+
+
+/* ─── CSS custom properties definition ──────────────────────────────── */
+/* ✅ both configs                                                         */
+
+:root {
+    --brand-color: #0055ff;
+    --surface-color: #f8f9fa;
+    --text-color: rgb(33, 37, 41);
+}
+
+
+/* ─── Invalid rules — ❌ both configs ───────────────────────────────── */
+
+.invalid-hex {
+    color: #xyz;
+}
+
+.unknown-property {
+    colorr: red;
+}
+
+@keyframes test-anim {
+
+}

@@ -1,12 +1,13 @@
+/**
+ * @see https://prettier.io/docs/configuration
+ * @type {import("prettier").Config}
+ */
 const config = {
-	printWidth: 140,
-	singleQuote: false,
-	useTabs: false,
-	tabWidth: 7,
-	semi: true,
-	bracketSpacing: true,
-	trailingComma: 'all',
-	arrowParens: 'always',
+  trailingComma: "es5",
+  tabWidth: 4,
+  useTabs: false,
+  semi: false,
+  singleQuote: true,
 };
 
 export default config;

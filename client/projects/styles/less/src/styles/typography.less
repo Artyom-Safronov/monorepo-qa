@@ -1,0 +1,37 @@
+@sans: system-ui, 'Segoe UI', Roboto, sans-serif;
+@mono: ui-monospace, Consolas, monospace;
+
+@base: 4px;
+
+@font-size: @base * 3;
+
+#header {
+  color: black;
+  .navigation {
+    font-size: 12px;
+    color: white;
+  }
+  .logo {
+    width: 300px;
+  }
+}
+
+#bundle() {
+  .button {
+    display: block;
+    border: 1px solid black;
+    background-color: grey;
+    color: hsla();
+    &:hover {
+      background-color: white;
+    }
+  }
+
+  primary: blue;
+  secondary: green;
+}
+
+.test {
+  #bundle.button();
+  #positions.center-fixed();
+}

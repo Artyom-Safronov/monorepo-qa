@@ -1,0 +1,51 @@
+:root {
+    --base: #fff;
+}
+
+@keyframes name {
+    to {
+        
+    }
+    
+    0% {
+        color: var();
+    }
+}
+
+
+
+@keyframes glitch {
+
+    from {
+
+
+    }
+
+    to {
+
+    }
+
+    20% {
+
+    }
+}
+
+@keyframes fade {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.test {
+    animation: 1s ease-in 2s fade;
+    font-size: large;
+    
+}
+
+@media screen and (width >= 0px) {
+
+}

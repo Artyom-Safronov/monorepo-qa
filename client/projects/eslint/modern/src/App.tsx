@@ -66,6 +66,7 @@ export default () => {
 	// Нарушение: react/react-in-jsx-scope — React не импортирован в scope (на каждом JSX-элементе)
 	return (
 		<Box sx={{ p: 3 }}>
+		
 			<Stack spacing={3}>
 				<Box>
 					<Typography variant="h3" gutterBottom>

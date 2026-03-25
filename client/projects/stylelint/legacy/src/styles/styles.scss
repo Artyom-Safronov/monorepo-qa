@@ -1,0 +1,36 @@
+@import 'common.scss';
+@use 'sass:map';
+
+@function fibonacci($number) {
+    $sequence: 0 1;
+    @for $_ from 1 through $n {
+        $new: nth($sequence, length($sequence)) + nth($sequence, length($sequence) - 1);
+        $sequence: append($sequence, $new);
+    }
+    @return nth($sequence, length($sequence));
+}
+
+
+$dark-theme: true !default;
+$primary-color: #f8bbd0 !default;
+$accent-color: #6a1b9a !default;
+
+
+$theme-colors: (
+  "success": #28a745,
+  "info": #17a2b8,
+  "warning": #ffc107,
+);
+
+
+.block {
+  color: $;
+    $local: 10px;
+    width: $local;
+    color: $base-color;
+    background-color: map.deep-merge(, )
+}
+
+.next {
+    color: the;
+}
